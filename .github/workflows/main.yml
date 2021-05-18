@@ -18,7 +18,6 @@ jobs:
           curl -fsLO https://raw.githubusercontent.com/scijava/scijava-scripts/github-actions/github-action-build.sh
           sh github-action-build.sh
         env:
-          secure_env: ${{secrets.GITHUB_TOKEN}}
           repo_fork: ${{github.repository}} # The owner and repository name. For example, 'scijava/scijava-scripts'
           runner_os: ${{runner.os}} # Detect current runner's operating system
           git_branch: ${{github.ref}} # Current branch name. For example, 'refs/head/github-actions'

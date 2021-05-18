@@ -22,4 +22,3 @@ jobs:
           repo_fork: ${{github.repository}} # The owner and repository name. For example, 'scijava/scijava-scripts'
           runner_os: ${{runner.os}} # no need to change
           git_branch: ${{github.head_ref}}
-          python_version: ${{matrix.python}}

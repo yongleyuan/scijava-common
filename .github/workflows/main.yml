@@ -12,9 +12,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Find Pull Request
-        uses: juliangruber/find-pull-request-action@v1.5.0
 
+      - uses: juliangruber/find-pull-request-action@v1.5.0
       - name: Build with Maven using GitHub Actions
         run: |
           curl -fsLO https://raw.githubusercontent.com/scijava/scijava-scripts/github-actions/github-action-build.sh
@@ -24,6 +23,5 @@ jobs:
           pull_request: ${{github.event.number}}
           repo_fork: ${{github.repository}} # The owner and repository name. For example, 'scijava/scijava-scripts'
           runner_os: ${{runner.os}} # no need to change
-          git_branch: ${{github.head_ref}}
+          git_branch: ${{{github.ref}}##*/} # test
           pr: ${{steps.find-pull-request.outputs.number}}
-          gb: ${{github.ref}}
